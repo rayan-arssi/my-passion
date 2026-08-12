@@ -1,6 +1,6 @@
-import mindlyImage from "../images/mindly_project.png";
-import shiftImage from "../images/shift_project.png";
-import sorryboxImage from "../images/sorrybox_project.png";
+import mindlyImage from "../images/mindly_project.webp";
+import shiftImage from "../images/shift_project.webp";
+import sorryboxImage from "../images/sorrybox_project.webp";
 
 export const projects = [
 	{

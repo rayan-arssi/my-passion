@@ -1,4 +1,4 @@
-import posterPhoto from '../images/mindly_project.png';
+import posterPhoto from '../images/mindly_project.webp';
 
 export default function ProjectPoster({ project, large = false }) {
   return (

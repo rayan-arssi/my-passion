@@ -1,5 +1,5 @@
 import { BrushBlob } from "./Brush";
-import heroPhoto from "../images/hero_section.png";
+import heroPhoto from "../images/hero_section.webp";
 
 function PlaceholderArt({ variant }) {
 	return (

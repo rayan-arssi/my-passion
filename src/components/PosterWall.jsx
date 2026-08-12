@@ -2,11 +2,20 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getLenis } from '../lib/scroll';
 import Reveal from './Reveal';
-import { posters, categories } from '../data/posters';
+import { posters } from '../data/posters';
 
 const ease = [0.22, 1, 0.36, 1];
 
 function PosterArt({ poster }) {
+  if (poster.image) {
+    return (
+      <div className={`pwall-art pwall-art--${poster.variant} pwall-art--photo`} aria-hidden="true">
+        <img className="pwall-photo" src={poster.image} alt="" />
+        <span className="pwall-photo-overlay" />
+        <span className="pwall-index">{poster.id}</span>
+      </div>
+    );
+  }
   return (
     <div className={`pwall-art pwall-art--${poster.variant}`} aria-hidden="true">
       <span className="pwall-art-title">{poster.title}</span>
@@ -54,7 +63,6 @@ function PosterTile({ poster }) {
     <>
       <PosterArt poster={poster} />
       <span className="pwall-tag">{poster.tag}</span>
-      <span className="pwall-caption">{poster.title} — {poster.category}</span>
     </>
   );
 }
@@ -85,7 +93,7 @@ function Lightbox({ poster, onClose, count, onPrev, onNext }) {
       onClick={onClose}
     >
       <motion.div
-        className={`lightbox-frame lightbox-frame--${poster.ratio}`}
+        className={`lightbox-frame lightbox-frame--${poster.ratio || 'square'}`}
         onClick={(e) => e.stopPropagation()}
         initial={{ scale: 0.8, y: 40, rotate: -4, opacity: 0 }}
         animate={{ scale: 1, y: 0, rotate: -2, opacity: 1 }}
@@ -93,7 +101,7 @@ function Lightbox({ poster, onClose, count, onPrev, onNext }) {
         transition={{ type: 'spring', stiffness: 180, damping: 20 }}
       >
         <PosterTile poster={poster} />
-        <span className="lightbox-badge">{poster.category}</span>
+        <span className="lightbox-badge">{poster.category || poster.tag || poster.id}</span>
       </motion.div>
 
       <div className="lightbox-bar">
@@ -109,12 +117,10 @@ function Lightbox({ poster, onClose, count, onPrev, onNext }) {
 }
 
 export default function PosterWall() {
-  const [filter, setFilter] = useState('ALL');
   const [openIndex, setOpenIndex] = useState(null);
 
-  const filtered = filter === 'ALL' ? posters : posters.filter((p) => p.category === filter);
-  const openPoster = openIndex !== null ? filtered[openIndex] : null;
-  const count = filtered.length;
+  const openPoster = openIndex !== null ? posters[openIndex] : null;
+  const count = posters.length;
 
   const prev = () => setOpenIndex((openIndex + count - 1) % count);
   const next = () => setOpenIndex((openIndex + 1) % count);
@@ -131,25 +137,23 @@ export default function PosterWall() {
           </Reveal>
         </header>
 
-        <Reveal delay={0.05} className="pwall-filterbar">
-          {categories.map((c) => (
-            <button
-              key={c}
-              className={`pwall-filter${filter === c ? ' pwall-filter--active' : ''}`}
-              onClick={() => setFilter(c)}
-            >
-              {c}
-            </button>
-          ))}
-        </Reveal>
-
         <motion.div layout className="wall-grid">
           <AnimatePresence mode="popLayout">
-            {filtered.map((poster, i) => (
+            {posters.map((poster, i) => (
               <motion.button
                 key={poster.id}
                 layout
-                className={`wall-item wall-item--${poster.ratio}`}
+                className={`wall-item wall-item--${poster.ratio || 'square'}${poster.image ? ' wall-item--photo' : ''}`}
+                style={
+                  poster.image
+                    ? {
+                        aspectRatio: poster.aspect,
+                        ...(poster.span
+                          ? { gridColumn: `span ${poster.span}`, marginTop: -160 }
+                          : {}),
+                      }
+                    : undefined
+                }
                 data-cursor="OPEN"
                 initial={{ opacity: 0, scale: 0.85 }}
                 animate={{ opacity: 1, scale: 1 }}
