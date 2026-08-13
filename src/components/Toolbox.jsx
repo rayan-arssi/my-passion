@@ -64,7 +64,7 @@ export default function Toolbox() {
             <h2 className="section-title">MY TOOLBOX</h2>
           </Reveal>
           <Reveal delay={0.12}>
-            <span className="handnote">hover a tool — see how I use it</span>
+            <span className="handnote">hover a tool, see how I use it</span>
           </Reveal>
         </header>
 

@@ -43,9 +43,7 @@ export default function Statement() {
         </motion.div>
       ))}
 
-      <div className="statement-tag">
-        <span>SCROLL, IT MOVES</span>
-      </div>
+     
     </section>
   );
 }

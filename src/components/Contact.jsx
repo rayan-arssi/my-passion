@@ -1,64 +1,143 @@
-import { motion } from 'framer-motion';
-import Reveal from './Reveal';
-import SplitWords from './SplitWords';
-import Magnetic from './Magnetic';
-import Globe from './Globe';
-import { BrushSwoosh } from './Brush';
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
+import Reveal from "./Reveal";
+import SplitWords from "./SplitWords";
+import Globe from "./Globe";
+import { BrushSwoosh } from "./Brush";
+import { EMAILJS, CONTACT_EMAIL } from "../lib/email";
 
-const EMAIL = 'r.arssi@outlook.com';
+const head = ["LET'S MAKE", "SOMETHING", "GREAT."];
 
-const head = ['LET\'S MAKE', 'SOMETHING', 'GREAT.'];
+const INITIAL = { name: "", email: "", message: "" };
 
 export default function Contact() {
-  return (
-    <section className="section contact" id="contact">
-      <div className="contact-top">
-        <Reveal delay={0.1}>
-          <span className="contact-kicker">HAVE AN IDEA, PROJECT OR OPPORTUNITY?</span>
-        </Reveal>
-        <div className="contact-globe">
-          <Globe size={72} />
-        </div>
-      </div>
+	const [form, setForm] = useState(INITIAL);
+	const [status, setStatus] = useState("idle");
 
-      <h2 className="contact-head">
-        {head.map((line, i) => (
-          <span key={line} className="contact-headline">
-            <SplitWords text={line} delay={0.05 + i * 0.08} className="contact-head-word" />
-            {i === head.length - 1 && (
-              <span className="contact-brush">
-                <BrushSwoosh />
-              </span>
-            )}
-          </span>
-        ))}
-      </h2>
+	const set = (key) => (e) => setForm((f) => ({ ...f, [key]: e.target.value }));
 
-      <Reveal delay={0.2} className="contact-actions">
-        <Magnetic>
-          <a className="btn btn--solid" href={`mailto:${EMAIL}?subject=Let's%20make%20something%20great`}>
-            GET IN TOUCH
-          </a>
-        </Magnetic>
-        <Magnetic>
-          <a className="btn" href={`mailto:${EMAIL}?subject=Hi%20Rayan`}>
-            EMAIL ME
-          </a>
-        </Magnetic>
-      </Reveal>
+	const onSubmit = async (e) => {
+		e.preventDefault();
+		setStatus("sending");
+		try {
+			await emailjs.send(
+				EMAILJS.serviceId,
+				EMAILJS.templateId,
+				{
+					from_name: form.name,
+					from_email: form.email,
+					message: form.message,
+					to_email: CONTACT_EMAIL,
+				},
+				EMAILJS.publicKey,
+			);
+			setStatus("sent");
+			setForm(INITIAL);
+		} catch (err) {
+			console.error(err);
+			setStatus("error");
+		}
+	};
 
-      <Reveal delay={0.25} className="contact-email">
-        <a href={`mailto:${EMAIL}`} className="contact-mail" data-cursor="WRITE">
-          {EMAIL}
-        </a>
-      </Reveal>
+	return (
+		<section className="section contact" id="contact">
+			<div className="contact-top">
+				<Reveal delay={0.1}>
+					<span className="contact-kicker">
+						HAVE AN IDEA, PROJECT OR OPPORTUNITY?
+					</span>
+				</Reveal>
+				<div className="contact-globe">
+					<Globe size={72} />
+				</div>
+			</div>
 
-      <div className="contact-socials">
-        <Magnetic strength={0.3}>
-          <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" data-cursor="LINK">LINKEDIN ↗</a>
-        </Magnetic>
-        <span className="contact-x">×</span>
-      </div>
-    </section>
-  );
+			<Reveal delay={0.2} className="contact-formwrap">
+				<form className="contact-form" onSubmit={onSubmit}>
+					<div className="contact-form-row">
+						<label className="contact-field">
+							<span className="contact-field-label">Your name</span>
+							<input
+								className="contact-input"
+								type="text"
+								name="name"
+								required
+								placeholder="Name"
+								value={form.name}
+								onChange={set("name")}
+							/>
+						</label>
+
+						<label className="contact-field">
+							<span className="contact-field-label">Your email</span>
+							<input
+								className="contact-input"
+								type="email"
+								name="email"
+								required
+								placeholder="email"
+								value={form.email}
+								onChange={set("email")}
+							/>
+						</label>
+					</div>
+
+					<label className="contact-field">
+						<span className="contact-field-label">Your message</span>
+						<textarea
+							className="contact-input contact-input--area"
+							name="message"
+							rows={5}
+							required
+							placeholder="Tell me about your project…"
+							value={form.message}
+							onChange={set("message")}
+						/>
+					</label>
+
+					<div className="contact-form-foot">
+						<button
+							className="btn btn--solid contact-submit"
+							type="submit"
+							disabled={status === "sending"}
+							data-cursor="SEND"
+						>
+							{status === "sending" ? "SENDING…" : "SEND MESSAGE"}
+						</button>
+						<span className={`contact-status contact-status--${status}`}>
+							{status === "sent"
+								? "✓ Message sent, I'll get back to you soon."
+								: status === "error"
+									? "Oops, something went wrong. Try again or email me directly."
+									: ""}
+						</span>
+					</div>
+				</form>
+			</Reveal>
+
+			<Reveal delay={0.15} className="contact-email">
+				<a
+					href={`mailto:${CONTACT_EMAIL}`}
+					className="contact-mail"
+					data-cursor="WRITE"
+				>
+					{CONTACT_EMAIL}
+				</a>
+			</Reveal>
+
+			<div className="contact-socials">
+				<Reveal delay={0.05}>
+					<a
+						href="https://www.linkedin.com"
+						target="_blank"
+						rel="noreferrer"
+						data-cursor="LINK"
+					>
+						LINKEDIN ↗
+					</a>
+				</Reveal>
+				<span className="contact-x">×</span>
+			</div>
+		</section>
+	);
 }

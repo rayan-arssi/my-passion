@@ -1,5 +1,6 @@
 import { BrushBlob } from "./Brush";
 import heroPhoto from "../images/hero_section.webp";
+import aboutPhoto from "../images/me_portrait.jpeg";
 
 function PlaceholderArt({ variant }) {
 	return (
@@ -24,6 +25,12 @@ export default function Portrait({ variant = "hero", className = "" }) {
 						src={heroPhoto}
 						alt="Rayan Arssi, in the studio"
 					/>
+				) : variant === "about" ? (
+					<img
+						className="portrait-photo"
+						src={aboutPhoto}
+						alt="Rayan Arssi, the profile shot"
+					/>
 				) : (
 					<PlaceholderArt variant={variant} />
 				)}
@@ -34,7 +41,7 @@ export default function Portrait({ variant = "hero", className = "" }) {
 			<figcaption className="portrait-caption">
 				{variant === "hero"
 					? "Rayan, in the studio"
-					: "candid — actually working"}
+					: "the profile shot"}
 			</figcaption>
 		</figure>
 	);
