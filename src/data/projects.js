@@ -1,6 +1,7 @@
 import mindlyImage from "../images/mindly_project.webp";
 import shiftImage from "../images/shift_project.webp";
 import sorryboxImage from "../images/sorrybox_project.webp";
+import footleImage from "../images/footle_project.png";
 
 export const projects = [
 	{
@@ -41,13 +42,14 @@ export const projects = [
 	},
 	{
 		id: "04",
-		name: "LUME",
-		category: "Motion & Branding",
-		description: "A looping visual identity for a fictional music festival.",
-		year: "2024",
-		stack: ["After Effects", "Illustrator", "WebGL"],
-
-		url: "https://example.com",
+		name: "Footle",
+		category: "Web Development",
+		description:
+			"Footle is a football guessing game where you identify a player using progressively revealed clues. The fewer clues you need, the more points you earn, with daily challenges, streaks, stats, and leaderboards keeping you coming back.",
+		year: "2026",
+		stack: ["React", "TypeScript", "Framer Motion", "API"],
+		image: footleImage,
+		url: "https://footle-vu9r.onrender.com",
 		variant: 3,
 	},
 ];

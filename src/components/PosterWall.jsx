@@ -101,7 +101,6 @@ function Lightbox({ poster, onClose, count, onPrev, onNext }) {
         transition={{ type: 'spring', stiffness: 180, damping: 20 }}
       >
         <PosterTile poster={poster} />
-        <span className="lightbox-badge">{poster.category || poster.tag || poster.id}</span>
       </motion.div>
 
       <div className="lightbox-bar">
@@ -151,6 +150,7 @@ export default function PosterWall() {
                         ...(poster.span
                           ? { gridColumn: `span ${poster.span}`, marginTop: -160 }
                           : {}),
+                        ...(poster.marginTop !== undefined ? { marginTop: poster.marginTop } : {}),
                       }
                     : undefined
                 }

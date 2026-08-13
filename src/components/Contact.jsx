@@ -128,7 +128,7 @@ export default function Contact() {
 			<div className="contact-socials">
 				<Reveal delay={0.05}>
 					<a
-						href="https://www.linkedin.com"
+						href="https://www.linkedin.com/in/rayan-arssi-3a189a41a"
 						target="_blank"
 						rel="noreferrer"
 						data-cursor="LINK"

@@ -743,19 +743,6 @@
 	width: min(86vw, 900px);
 }
 
-.lightbox-badge {
-	position: absolute;
-	bottom: 10px;
-	left: 12px;
-	z-index: 3;
-	background: var(--ink);
-	color: var(--cream);
-	font-size: 0.62rem;
-	font-weight: 700;
-	letter-spacing: 0.18em;
-	padding: 6px 12px;
-	border-radius: 2px;
-}
 
 .lightbox-bar {
 	position: absolute;
