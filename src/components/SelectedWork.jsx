@@ -46,6 +46,7 @@ function WorkRow({ project, onOpen }) {
 
 	const open = (e) => {
 		e.stopPropagation();
+		if (project.comingSoon) return;
 		onOpen(project);
 	};
 
@@ -97,14 +98,18 @@ function WorkRow({ project, onOpen }) {
 					))}
 				</motion.div>
 				<motion.div className="work-links" variants={itemVariants}>
-					<a
-						href={project.url}
-						target="_blank"
-						rel="noreferrer"
-						onClick={(e) => e.stopPropagation()}
-					>
-						LIVE SITE ↗
-					</a>
+					{project.comingSoon ? (
+						<span className="work-coming">COMING SOON</span>
+					) : (
+						<a
+							href={project.url}
+							target="_blank"
+							rel="noreferrer"
+							onClick={(e) => e.stopPropagation()}
+						>
+							LIVE SITE ↗
+						</a>
+					)}
 				</motion.div>
 				<motion.div className="work-extra" variants={extraVariants}>
 					<span>YEAR — {project.year}</span>

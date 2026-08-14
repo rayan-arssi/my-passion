@@ -7,7 +7,10 @@ import iphonePoster from "../images/posters/iphone_post.webp";
 import mePoster from "../images/posters/me_post.webp";
 import barbiePoster from "../images/posters/barbie_poster.png";
 import kenjiPoster from "../images/posters/kenji_post.png";
-import saibariPoster from "../images/posters/saibari_project.png";
+import vibePoster from "../images/posters/vibe_post.png";
+import shiftPoster from "../images/posters/shift_poster.png";
+import yellowPoster from "../images/posters/yellow_post.png";
+import magazinePoster from "../images/posters/magazine_post.png";
 
 export const posters = [
 	{
@@ -72,10 +75,10 @@ export const posters = [
 	},
 	{
 		id: "P09",
-		tag: "BIRTHDAY GIFT",
+		tag: "SHIFT",
 		variant: 0,
-		image: barbiePoster,
-		aspect: 1086 / 1448,
+		image: shiftPoster,
+		aspect: 595 / 843,
 		marginTop: -70,
 	},
 	{
@@ -87,9 +90,24 @@ export const posters = [
 	},
 	{
 		id: "P11",
-		tag: "SAIBARI",
+		tag: "MAGAZINE",
 		variant: 0,
-		image: saibariPoster,
-		aspect: 1254 / 1254,
+		image: magazinePoster,
+		aspect: 1080 / 1032,
+	},
+	{
+		id: "P12",
+		tag: "MOODBOARD",
+		variant: 0,
+		image: vibePoster,
+		aspect: 842 / 596,
+		marginTop: -30,
+	},
+	{
+		id: "P13",
+		tag: "MOODBOARD 2",
+		variant: 0,
+		image: yellowPoster,
+		aspect: 1119 / 789,
 	},
 ];

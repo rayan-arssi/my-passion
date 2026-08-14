@@ -2,6 +2,7 @@ import mindlyImage from "../images/mindly_project.webp";
 import shiftImage from "../images/shift_project.webp";
 import sorryboxImage from "../images/sorrybox_project.webp";
 import footleImage from "../images/footle_project.png";
+import sushiImage from "../images/sushi_project.png";
 
 export const projects = [
 	{
@@ -51,5 +52,29 @@ export const projects = [
 		image: footleImage,
 		url: "https://footle-vu9r.onrender.com",
 		variant: 3,
+	},
+	{
+		id: "05",
+		name: "So Sushi",
+		category: "Web Design/Development",
+		description:
+			"So Sushi is a group of six hand-made sushi and pokebowl restaurants in Belgium. The website presents the brand story, the restaurants, the menu and the B2B offer.",
+		year: "2026",
+		stack: ["Web Design", "UI/UX", "Development"],
+		image: sushiImage,
+		url: "https://so-sushi.be/fr",
+		variant: 0,
+	},
+	{
+		id: "06",
+		name: "Coming Soon",
+		category: "Coming Soon",
+		description: "A new project is on its way. Stay tuned.",
+		year: "2026",
+		stack: [],
+		image: null,
+		url: "",
+		variant: 4,
+		comingSoon: true,
 	},
 ];
