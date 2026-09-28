@@ -67,7 +67,7 @@ export const posters = [
 	},
 	{
 		id: "P08",
-		tag: "BIRTHDAY GIFT",
+		tag: "Summer 2026",
 		variant: 0,
 		image: barbiePoster,
 		aspect: 1086 / 1448,
