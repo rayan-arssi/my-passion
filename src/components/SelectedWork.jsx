@@ -98,9 +98,7 @@ function WorkRow({ project, onOpen }) {
 					))}
 				</motion.div>
 				<motion.div className="work-links" variants={itemVariants}>
-					{project.comingSoon ? (
-						<span className="work-coming">COMING SOON</span>
-					) : (
+					{project.url ? (
 						<a
 							href={project.url}
 							target="_blank"
@@ -109,6 +107,8 @@ function WorkRow({ project, onOpen }) {
 						>
 							LIVE SITE ↗
 						</a>
+					) : (
+						project.comingSoon && <span className="work-coming">COMING SOON</span>
 					)}
 				</motion.div>
 				<motion.div className="work-extra" variants={extraVariants}>
@@ -178,11 +178,13 @@ function ProjectModal({ project, onClose }) {
 								</span>
 							))}
 						</div>
-						<div className="modal-links">
-							<a href={project.url} target="_blank" rel="noreferrer">
-								LIVE SITE ↗
-							</a>
-						</div>
+						{project.url ? (
+							<div className="modal-links">
+								<a href={project.url} target="_blank" rel="noreferrer">
+									LIVE SITE ↗
+								</a>
+							</div>
+						) : null}
 					</div>
 					<p className="modal-desc">{project.description}</p>
 				</div>

@@ -3,6 +3,7 @@ import shiftImage from "../images/shift_project.webp";
 import sorryboxImage from "../images/sorrybox_project.webp";
 import footleImage from "../images/footle_project.png";
 import sushiImage from "../images/sushi_project.png";
+import azyoImage from "../images/azyo_project.png";
 
 export const projects = [
 	{
@@ -19,6 +20,18 @@ export const projects = [
 	},
 	{
 		id: "02",
+		name: "AZYO",
+		category: " Product Design/Webdevelopment",
+		description:
+			"AZYO is a design-object brand created to organize and enhance modern workspaces. The brand offers accessories such as phone stands, mouse holders, cup holders, laptop stands, and headphone stands, combining a modern, minimalist, and recognizable aesthetic. The project covers the complete brand identity, product design, visual content, and packaging, as well as the creation of an immersive website showcasing the collection.",
+		year: "2026",
+		stack: ["Branding", "Figma", "Illustrator", "React"],
+		image: azyoImage,
+		url: "",
+		variant: 4,
+	},
+	{
+		id: "03",
 		name: "SHIFT Festival",
 		category: "UI/UX & Web Design",
 		description:
@@ -30,7 +43,7 @@ export const projects = [
 		variant: 1,
 	},
 	{
-		id: "03",
+		id: "04",
 		name: "Sorrybox",
 		category: "Web Design/Development",
 		description:
@@ -42,7 +55,7 @@ export const projects = [
 		variant: 2,
 	},
 	{
-		id: "04",
+		id: "05",
 		name: "Footle",
 		category: "Web Development",
 		description:
@@ -54,7 +67,7 @@ export const projects = [
 		variant: 3,
 	},
 	{
-		id: "05",
+		id: "06",
 		name: "So Sushi",
 		category: "Web Design/Development",
 		description:
@@ -64,17 +77,5 @@ export const projects = [
 		image: sushiImage,
 		url: "https://so-sushi.be/fr",
 		variant: 0,
-	},
-	{
-		id: "06",
-		name: "Coming Soon",
-		category: "Coming Soon",
-		description: "A new project is on its way. Stay tuned.",
-		year: "2026",
-		stack: [],
-		image: null,
-		url: "",
-		variant: 4,
-		comingSoon: true,
 	},
 ];
