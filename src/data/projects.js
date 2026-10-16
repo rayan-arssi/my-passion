@@ -1,7 +1,6 @@
 import mindlyImage from "../images/mindly_project.webp";
 import shiftImage from "../images/shift_project.webp";
 import sorryboxImage from "../images/sorrybox_project.webp";
-import footleImage from "../images/footle_project.png";
 import sushiImage from "../images/sushi_project.png";
 import azyoImage from "../images/azyo_project.png";
 
@@ -56,18 +55,6 @@ export const projects = [
 	},
 	{
 		id: "05",
-		name: "Footle",
-		category: "Web Development",
-		description:
-			"Footle is a football guessing game where you identify a player using progressively revealed clues. The fewer clues you need, the more points you earn, with daily challenges, streaks, stats, and leaderboards keeping you coming back.",
-		year: "2026",
-		stack: ["React", "TypeScript", "Framer Motion", "API"],
-		image: footleImage,
-		url: "https://footle-vu9r.onrender.com",
-		variant: 3,
-	},
-	{
-		id: "06",
 		name: "So Sushi",
 		category: "Web Design/Development",
 		description:

@@ -2,11 +2,9 @@ import sorryboxPoster from "../images/posters/sorrybox_poster.webp";
 import sushi1Poster from "../images/posters/sushi1_poster.webp";
 import sushi2Poster from "../images/posters/sushi2_poster.webp";
 import footPoster from "../images/posters/foot_poster.webp";
-import f50Poster from "../images/posters/f50_post.webp";
 import iphonePoster from "../images/posters/iphone_post.webp";
 import mePoster from "../images/posters/me_post.webp";
 import barbiePoster from "../images/posters/barbie_poster.png";
-import kenjiPoster from "../images/posters/kenji_post.png";
 import vibePoster from "../images/posters/vibe_post.png";
 import shiftPoster from "../images/posters/shift_poster.png";
 import yellowPoster from "../images/posters/yellow_post.png";
@@ -28,22 +26,21 @@ export const posters = [
 		aspect: 632 / 896,
 	},
 	{
-		id: "P03",
-		tag: "F50 POST",
+		id: "P08",
+		tag: "IPHONE 16 POST",
 		variant: 0,
-		image: f50Poster,
+		image: iphonePoster,
 		aspect: 1,
 	},
-
 	{
-		id: "P04",
-		tag: "KENJI",
+		id: "P09",
+		tag: "MAGAZINE",
 		variant: 0,
-		image: kenjiPoster,
-		aspect: 1254 / 1254,
+		image: magazinePoster,
+		aspect: 1080 / 1032,
 	},
 	{
-		id: "P05",
+		id: "P03",
 		tag: "SO SUSHI",
 		variant: 2,
 		image: sushi2Poster,
@@ -51,14 +48,14 @@ export const posters = [
 	},
 
 	{
-		id: "P06",
+		id: "P04",
 		tag: "FOOTBALL",
 		variant: 3,
 		image: footPoster,
 		aspect: 1131 / 1600,
 	},
 	{
-		id: "P07",
+		id: "P05",
 		tag: "ME ",
 		variant: 0,
 		image: mePoster,
@@ -66,7 +63,7 @@ export const posters = [
 		span: 2,
 	},
 	{
-		id: "P08",
+		id: "P06",
 		tag: "Summer 2026",
 		variant: 0,
 		image: barbiePoster,
@@ -74,29 +71,16 @@ export const posters = [
 		marginTop: -70,
 	},
 	{
-		id: "P09",
+		id: "P07",
 		tag: "SHIFT",
 		variant: 0,
 		image: shiftPoster,
 		aspect: 595 / 843,
 		marginTop: -70,
 	},
+
 	{
 		id: "P10",
-		tag: "IPHONE 16 POST",
-		variant: 0,
-		image: iphonePoster,
-		aspect: 1,
-	},
-	{
-		id: "P11",
-		tag: "MAGAZINE",
-		variant: 0,
-		image: magazinePoster,
-		aspect: 1080 / 1032,
-	},
-	{
-		id: "P12",
 		tag: "MOODBOARD",
 		variant: 0,
 		image: vibePoster,
@@ -104,7 +88,7 @@ export const posters = [
 		marginTop: -30,
 	},
 	{
-		id: "P13",
+		id: "P11",
 		tag: "MOODBOARD 2",
 		variant: 0,
 		image: yellowPoster,
