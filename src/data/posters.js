@@ -85,7 +85,6 @@ export const posters = [
 		variant: 0,
 		image: vibePoster,
 		aspect: 842 / 596,
-		marginTop: -30,
 	},
 	{
 		id: "P11",
